@@ -1,5 +1,5 @@
 // Thay email bên dưới bằng email thật của Ditex
-const DITEX_EMAIL = "hello@example.com";
+const DITEX_EMAIL = "diemtrangtran15@gmail.com";
 
 const burger = document.querySelector(".burger");
 const menu = document.getElementById("menu");
