@@ -1,5 +1,4 @@
-// Thay email bên dưới bằng email thật của Ditex
-const DITEX_EMAIL = "diemtrangtran15@gmail.com";
+const ACCESS_KEY = "62d87f6e-07a0-4a85-89d3-121bf609c9e2";
 
 const burger = document.querySelector(".burger");
 const menu = document.getElementById("menu");
@@ -15,14 +14,42 @@ document.getElementById("y").textContent = new Date().getFullYear();
 
 const form = document.getElementById("form");
 const status = document.getElementById("status");
-form.addEventListener("submit", e => {
+const submitBtn = form.querySelector("button[type=submit]");
+
+form.addEventListener("submit", async e => {
   e.preventDefault();
   const d = Object.fromEntries(new FormData(form));
   if (!d.name.trim() || !d.contact.trim() || !d.msg.trim()) {
     status.textContent = "Vui lòng điền họ tên, thông tin liên hệ và nội dung cần trao đổi.";
     return;
   }
-  const body = `Họ tên: ${d.name}\nDoanh nghiệp/ngành: ${d.company}\nLiên hệ: ${d.contact}\n\n${d.msg}`;
-  window.location.href = `mailto:${DITEX_EMAIL}?subject=${encodeURIComponent("Yêu cầu tư vấn từ website Ditex")}&body=${encodeURIComponent(body)}`;
-  status.textContent = "Đã mở ứng dụng email của bạn. Hãy bấm Gửi trong email để hoàn tất.";
+  submitBtn.disabled = true;
+  status.textContent = "Đang gửi...";
+  try {
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({
+        access_key: ACCESS_KEY,
+        subject: "Yêu cầu tư vấn từ website Benitek",
+        from_name: "Website Benitek",
+        name: d.name,
+        company: d.company,
+        contact: d.contact,
+        message: d.msg,
+        botcheck: d.botcheck || ""
+      })
+    });
+    const json = await res.json();
+    if (res.ok && json.success) {
+      status.textContent = "Đã gửi thành công! Benitek sẽ liên hệ với bạn sớm.";
+      form.reset();
+    } else {
+      throw new Error(json.message || "send failed");
+    }
+  } catch (err) {
+    status.textContent = "Gửi chưa được. Vui lòng thử lại hoặc email trực tiếp: diemtrangtran15@gmail.com";
+  } finally {
+    submitBtn.disabled = false;
+  }
 });
