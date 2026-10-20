@@ -65,40 +65,63 @@
 </section>
 
 <section id="nganh" class="sec alt">
+<style>
+#nganh .ind-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:24px}
+#nganh .ind-card{grid-column:span 2;position:relative;display:flex;flex-direction:column;overflow:hidden;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:30px 28px 26px;cursor:default;transition:transform .3s ease,box-shadow .3s ease,background .3s ease,border-color .3s ease,color .3s ease}
+#nganh .ind-card:nth-child(n+4){grid-column:span 3}
+#nganh .ind-card::before{content:"";position:absolute;left:0;top:0;width:100%;height:5px;background:var(--acc)}
+#nganh .ind-num{font-size:2.6rem;font-weight:700;line-height:1;color:var(--acc);opacity:.35;margin-bottom:14px;transition:opacity .3s ease}
+#nganh .ind-card h3{font-size:1.3rem;font-weight:700;margin-bottom:.5em;transition:color .3s ease}
+#nganh .ind-card p{margin:0 0 22px;color:var(--mute);font-size:.97rem;transition:color .3s ease}
+#nganh .ind-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+#nganh .ind-tags span{font-size:.84rem;font-weight:600;padding:5px 14px;border-radius:999px;background:rgba(0,191,99,.12);border:1px solid rgba(0,191,99,.4);color:var(--acc-text);transition:background .3s ease,color .3s ease,border-color .3s ease}
+#nganh .ind-card:hover,#nganh .ind-card:focus-within{transform:translateY(-10px) scale(1.02);background:#0f1a1d;border-color:var(--acc);box-shadow:0 22px 44px rgba(0,0,0,.28)}
+#nganh .ind-card:hover h3,#nganh .ind-card:focus-within h3{color:#fff}
+#nganh .ind-card:hover p,#nganh .ind-card:focus-within p{color:#c7d3d5}
+#nganh .ind-card:hover .ind-num,#nganh .ind-card:focus-within .ind-num{opacity:1}
+#nganh .ind-card:hover .ind-tags span,#nganh .ind-card:focus-within .ind-tags span{background:var(--acc);border-color:var(--acc);color:#0f1a1d}
+@media(max-width:900px){#nganh .ind-grid{grid-template-columns:repeat(2,1fr)}#nganh .ind-card,#nganh .ind-card:nth-child(n+4){grid-column:span 1}#nganh .ind-card:last-child{grid-column:span 2}}
+@media(max-width:600px){#nganh .ind-grid{grid-template-columns:1fr}#nganh .ind-card:last-child{grid-column:span 1}}
+@media(prefers-reduced-motion:reduce){#nganh .ind-card{transition:none}#nganh .ind-card:hover{transform:none}}
+</style>
   <div class="wrap">
     <p class="eyebrow">Ngành phục vụ</p>
-    <h2>Các ngành chúng tôi tập trung phục vụ</h2>
-    <p class="intro">Mỗi ngành có sản phẩm, chu kỳ bán hàng và cách ra quyết định riêng. Vì vậy, chiến lược marketing cần được xây dựng theo đặc thù của từng ngành.</p>
+    <h2>5 ngành, 5 cách bán hàng khác nhau</h2>
+    <p class="intro">Khách mua inox hỏi về tiêu chuẩn, khách chọn nội thất xem dự án thực tế. Mỗi ngành có cách tìm nhà cung cấp và ra quyết định riêng, nên chiến lược marketing cũng phải được xây riêng cho từng ngành.</p>
     <ul class="ind-grid">
       <li class="ind-card">
+        <div class="ind-num">01</div>
         <h3>Nội thất và thiết kế không gian</h3>
-        <p>Đơn vị thiết kế, thi công, sản xuất nội thất và showroom cần thể hiện rõ năng lực triển khai và các dự án đã thực hiện.</p>
+        <p>Khách hàng chọn đơn vị thiết kế, thi công bằng cách xem họ đã làm được gì. Website cần kể rõ từng dự án và năng lực triển khai.</p>
         <div class="ind-tags"><span>Năng lực</span><span>Dự án</span></div>
       </li>
       <li class="ind-card">
+        <div class="ind-num">02</div>
         <h3>Vật liệu xây dựng</h3>
-        <p>Nhà sản xuất và nhà phân phối cần diễn giải rõ đặc tính kỹ thuật, ứng dụng và cách tổ chức nhiều dòng sản phẩm.</p>
+        <p>Nhiều dòng sản phẩm, nhiều thông số kỹ thuật. Nội dung cần giúp kiến trúc sư, nhà thầu và đại lý hiểu nhanh và chọn đúng.</p>
         <div class="ind-tags"><span>Đặc tính</span><span>Ứng dụng</span><span>Dòng sản phẩm</span></div>
       </li>
       <li class="ind-card">
+        <div class="ind-num">03</div>
         <h3>Inox và thép không gỉ</h3>
-        <p>Doanh nghiệp sản xuất, gia công và phân phối inox, từ ứng dụng công nghiệp đến inox trang trí.</p>
+        <p>Từ inox công nghiệp đến inox trang trí, người mua cần thông tin chính xác về mác thép, quy cách và ứng dụng trước khi liên hệ.</p>
         <div class="ind-tags"><span>Công nghiệp</span><span>Trang trí</span></div>
       </li>
       <li class="ind-card">
+        <div class="ind-num">04</div>
         <h3>Nhôm</h3>
-        <p>Nhà cung cấp nhôm định hình, vật liệu và cấu kiện nhôm phục vụ các công trình.</p>
+        <p>Nhôm định hình và cấu kiện cho công trình có nhiều chủng loại. Cần hệ thống nội dung rõ ràng để khách tìm đúng sản phẩm mình cần.</p>
         <div class="ind-tags"><span>Nhôm định hình</span><span>Cấu kiện công trình</span></div>
       </li>
       <li class="ind-card">
+        <div class="ind-num">05</div>
         <h3>Cơ khí</h3>
-        <p>Doanh nghiệp gia công, chế tạo chi tiết và thiết bị theo yêu cầu riêng của từng khách hàng.</p>
+        <p>Gia công, chế tạo theo bản vẽ và yêu cầu riêng. Khách cần thấy năng lực máy móc, quy trình và sản phẩm đã làm để yên tâm đặt hàng.</p>
         <div class="ind-tags"><span>Gia công</span><span>Chế tạo theo yêu cầu</span></div>
       </li>
     </ul>
   </div>
 </section>
-
 <section id="he-thong" class="sec">
   <div class="wrap">
     <h2>Một hệ thống, không phải sáu dịch vụ rời nhau</h2>
