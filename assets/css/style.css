@@ -47,3 +47,18 @@ form .btn{justify-self:start}#status{margin:0;color:var(--mute)}
 .burger{display:flex}.nav nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 20px 16px}
 .nav nav.open{display:flex}.nav nav a{padding:12px 0;width:100%}.nav .btn.small{width:auto;margin-top:8px;padding:10px 18px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* ===== Ngành phục vụ ===== */
+.ind-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.ind-card{position:relative;display:flex;flex-direction:column;overflow:hidden;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:28px 26px 24px;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.ind-card::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.ind-card h3{font-size:1.2rem;margin-bottom:.55em;transition:color .3s ease}
+.ind-card p{margin:0 0 20px;color:var(--mute);font-size:.96rem}
+.ind-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.ind-tags span{font-size:.82rem;font-weight:500;padding:4px 12px;border-radius:999px;background:var(--alt);border:1px solid var(--line);color:var(--mute);transition:background .3s ease,color .3s ease,border-color .3s ease}
+.ind-card:hover,.ind-card:focus-within{transform:translateY(-8px);border-color:var(--acc);box-shadow:0 18px 36px rgba(20,38,43,.16)}
+.ind-card:hover::before,.ind-card:focus-within::before{transform:scaleX(1)}
+.ind-card:hover h3,.ind-card:focus-within h3{color:var(--acc-text)}
+.ind-card:hover .ind-tags span,.ind-card:focus-within .ind-tags span{background:rgba(0,191,99,.12);border-color:var(--acc);color:var(--acc-text)}
+@media(prefers-color-scheme:dark){.ind-card:hover,.ind-card:focus-within{box-shadow:0 18px 36px rgba(0,0,0,.5)}}
+@media(max-width:640px){.ind-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.ind-card,.ind-card::before{transition:none}.ind-card:hover{transform:none}}
