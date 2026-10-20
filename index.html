@@ -13,6 +13,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+.sys .node,.sys .core{cursor:default;transition:transform .3s ease,box-shadow .3s ease,background .3s ease,color .3s ease,border-color .3s ease}
+.sys .node{font-weight:600}
+.sys .node:hover,.sys .node:focus-visible{transform:translate(-50%,-50%) translateY(-6px) scale(1.15);background:#0f1a1d;color:#fff;border-color:var(--acc);box-shadow:0 14px 28px rgba(0,0,0,.28);z-index:2}
+.sys .core:hover{transform:scale(1.1);background:#0f1a1d;color:#fff;box-shadow:0 0 0 6px rgba(0,191,99,.35),0 20px 40px rgba(0,0,0,.35)}
+@media(prefers-reduced-motion:reduce){.sys .node,.sys .core{transition:none}.sys .node:hover{transform:translate(-50%,-50%)}.sys .core:hover{transform:none}}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Bỏ qua điều hướng</a>
